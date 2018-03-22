@@ -1,6 +1,12 @@
 # Basic Example of lists in Kernel Module (Linux)
 This is a very basic example of the use of lists in Linux Kernel modules
 
+# General Information
+
+Please note that this repository is meant to be a simple demo. DO NOT expect it to do some fancy stuffs.
+
+This example should give you a Hello World of the Kernel Module in Linux as well as a very basic example of lists in the kernel module. For further descriptions on these topics, please go through the official docs.
+
 # Usage
 
 ## Build It !
@@ -11,7 +17,9 @@ This is a very basic example of the use of lists in Linux Kernel modules
 ## install the Kernel module
 after the build is successful, a .ko file will be generated (demo_km.ko). To change settings for the name of .ko file, please take a look at Makefile.
 
-to install the module, type `sudo insmod demo_km.ko`
+to install the module, type 
+
+`sudo insmod demo_km.ko`
 
 it might be possible that you will receive some errors during the insertion. But, if everything is configured properly, there shouldn't be any errors.
 
@@ -29,4 +37,4 @@ to see it, type: `dmesg -w` or simple `dmesg`
 
 ## Removing the Kernel Module
 
-$ sudo rmmod demo_km
+`$ sudo rmmod demo_km`
