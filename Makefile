@@ -1,7 +1,7 @@
 CONFIG_MODULE_SIG=n
 
-obj-m += sycon_testbench.o 
-sycon_testbench-objs := sycon_queue.o
+obj-m += demo_km.o 
+demo_km-objs := example_km_queue.o
 
 MY_CFLAGS += -g
 ccflags-y += ${MY_CFLAGS}
