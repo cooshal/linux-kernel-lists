@@ -1,7 +1,7 @@
 CONFIG_MODULE_SIG=n
 
-obj-m += demo_km.o 
-demo_km-objs := example_km_queue.o
+obj-m += demo_km_rx.o 
+demo_km_rx-objs := example_km_queue.o
 
 MY_CFLAGS += -g
 ccflags-y += ${MY_CFLAGS}

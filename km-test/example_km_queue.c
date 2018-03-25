@@ -8,17 +8,10 @@
 
 #include <linux/list.h>
 
+#include "../common/sycon.h"
 
-/**
- * define an example structure.
- * the idea is that the structure should have a list
- */
-struct example_list{
-	int in;
-	int out;
-
-	struct list_head list;
-};
+struct example_list global_list;
+EXPORT_SYMBOL(global_list);
 
 /**
  * Module Initialiation Block. 
@@ -33,8 +26,8 @@ init_km_list(void)
 	struct list_head *pos;
 	unsigned int i;
 
-	struct example_list stats_list;
-	INIT_LIST_HEAD(&stats_list.list);
+	// struct example_list global_list;
+	INIT_LIST_HEAD(&global_list.list);
 
 	printk(KERN_INFO "Initializing List");
 
@@ -42,14 +35,14 @@ init_km_list(void)
 		ex_list_temp= (struct example_list *) kmalloc(sizeof(struct example_list), GFP_ATOMIC);
 		
 		ex_list_temp->in = i + 1;
-		ex_list_temp->in = i + 2;
+		ex_list_temp->out = i + 2;
 
-		list_add(&(ex_list_temp->list), &(stats_list.list));
+		list_add(&(ex_list_temp->list), &(global_list.list));
 	}
 
 
 	printk("traversing the list using list_for_each()\n");
-	list_for_each(pos, &stats_list.list){
+	list_for_each(pos, &global_list.list){
 		 ex_list_temp= list_entry(pos, struct example_list, list);
 		 printk("in= %d in= %d\n", ex_list_temp->in, ex_list_temp->in);
 
