@@ -20,4 +20,10 @@ struct example_list{
 	struct list_head list;
 };
 
+// void add_to_list(struct example_list *list_item, struct example_list list_container) {
+// 	list_add(&(list_item->list), list_container.list);
+// }
+
+
+
 #endif /* INCLUDE_LINUX_SYCON_H_ */

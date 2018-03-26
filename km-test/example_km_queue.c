@@ -23,7 +23,7 @@ init_km_list(void)
 {
 
 	struct example_list *ex_list_temp;
-	struct list_head *pos;
+	struct list_head;
 	unsigned int i;
 
 	// struct example_list global_list;
@@ -31,7 +31,9 @@ init_km_list(void)
 
 	printk(KERN_INFO "Initializing List");
 
-	for(i=5; i!=0; --i){
+	printk("%llu; Current TS\n", rdtsc());
+
+	for(i = 5; i != 0; --i){
 		ex_list_temp= (struct example_list *) kmalloc(sizeof(struct example_list), GFP_ATOMIC);
 		
 		ex_list_temp->in = i + 1;
@@ -40,15 +42,7 @@ init_km_list(void)
 		list_add(&(ex_list_temp->list), &(global_list.list));
 	}
 
-
-	printk("traversing the list using list_for_each()\n");
-	list_for_each(pos, &global_list.list){
-		 ex_list_temp= list_entry(pos, struct example_list, list);
-		 printk("in= %d in= %d\n", ex_list_temp->in, ex_list_temp->in);
-
-	}
-
-	printk(KERN_INFO "Module inserted\n");
+	printk(KERN_INFO "[MODULE 1]: Module inserted\n");
 	return 0;
 }
 

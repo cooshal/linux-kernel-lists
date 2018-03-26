@@ -11,6 +11,8 @@
 
 extern struct example_list global_list;
 
+static int int_count;
+
 /**
  * Module Initialiation Block. 
  * This function is called when the module is loaded
